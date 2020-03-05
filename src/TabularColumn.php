@@ -26,13 +26,13 @@ class TabularColumn extends BaseColumn
      * @param bool $withPrefix whether to add prefix.
      * @return string
      */
-    public function getElementName($index, $withPrefix = true)
+    public function getElementName($index, $withPrefix = true, $key = null)
     {
         if ($index === null) {
             $index = '{' . $this->renderer->getIndexPlaceholder() . '}';
         }
 
-        $elementName = '[' . $index . '][' . $this->name . ']';
+        $elementName = (isset($key)?'['.$key.']':'').'[' . $index . ']'.'[' . $this->name . ']';
         $prefix = $withPrefix ? $this->getModel()->formName() : '';
 
         return $prefix . $elementName . (empty($this->nameSuffix) ? '' : ('_' . $this->nameSuffix));

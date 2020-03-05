@@ -48,6 +48,11 @@ abstract class BaseRenderer extends BaseObject implements RendererInterface
     public $columns = [];
 
     /**
+     * @var string key
+     */
+    public $key;
+
+    /**
      * @var int maximum number of rows
      */
     public $max;

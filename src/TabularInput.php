@@ -40,6 +40,11 @@ class TabularInput extends Widget
     public $columns = [];
 
     /**
+     * @var string key
+     */
+    public $key;
+
+    /**
      * @var integer maximum number of rows
      */
     public $max;
@@ -287,6 +292,7 @@ class TabularInput extends Widget
         $config = [
             'id'                => $this->getId(),
             'columns'           => $this->columns,
+            'key'               => $this->key,
             'min'               => $this->min,
             'max'               => $this->max,
             'attributeOptions'  => $this->attributeOptions,

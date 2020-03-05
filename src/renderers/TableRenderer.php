@@ -269,8 +269,12 @@ class TableRenderer extends BaseRenderer
      */
     public function renderCellContent($column, $index, $columnIndex = null)
     {
-        $id    = $column->getElementId($index);
-        $name  = $column->getElementName($index);
+        $id    = $column->getElementId($index, $this->key);
+        $name  = $column->getElementName($index, $this->key);
+
+        if (isset($this->key)) {
+            $name = str_replace('['.$index.']', '['.$this->key.']['.$index.']', $name);
+        }
 
         /**
          * This class inherits iconMap from BaseRenderer
